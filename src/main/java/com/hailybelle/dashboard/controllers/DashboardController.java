@@ -1,42 +1,49 @@
 package com.hailybelle.dashboard.controllers;
 
-import com.hailybelle.dashboard.models.Customization;
-import com.hailybelle.dashboard.models.DashboardComponent;
-import com.hailybelle.dashboard.services.CustomizationService;
-import com.hailybelle.dashboard.services.DashboardComponentService;
+import com.hailybelle.dashboard.models.Dashboard;
+import com.hailybelle.dashboard.services.DashboardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.security.Principal;
-import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class DashboardController {
 
     @Autowired
-    private CustomizationService customizationService;
+    private DashboardService dashboardService;
 
-    @Autowired
-    private DashboardComponentService dashboardComponentService;
+    @GetMapping("/create-dashboard")
+    public String createDashboardForm(Model model) {
+        return "create_dashboard";
+    }
 
-    @GetMapping("/dashboard")
-    public String showDashboard(Model model, Principal principal) {
-        String userId = principal.getName();
+    @PostMapping("/create-dashboard")
+    public String processDashboard(@RequestParam("dashboardTitle") String title, @RequestParam("dataSource") String dataSource, Model model) {
+        Dashboard dashboard = new Dashboard();
+        dashboard.setTitle(title);
 
-        // Fetch user customizations
-        Customization customization = customizationService.getCustomizationByUserId(userId);
-        model.addAttribute("customization", customization);
+        // Handle different data sources
+        switch (dataSource) {
+            case "csv":
+                dashboard.setDataSource("CSV Upload");
+                break;
+            case "bigquery":
+                dashboard.setDataSource("Google BigQuery");
+                break;
+            case "scratch":
+                dashboard.setDataSource("Start from Scratch");
+                break;
+            default:
+                dashboard.setDataSource("Unknown");
+        }
 
-        // Fetch dashboard components
-        List<DashboardComponent> components = dashboardComponentService.findByUserId(userId);
-        model.addAttribute("components", components);
+        dashboardService.save(dashboard);
+        model.addAttribute("dashboard", dashboard);
 
-        return "dashboard";
+        return "redirect:/configure-dashboard"; // Redirect to the next configuration page
     }
 }
-
-
-
 

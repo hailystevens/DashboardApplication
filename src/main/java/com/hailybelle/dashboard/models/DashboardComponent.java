@@ -15,6 +15,7 @@ public class DashboardComponent {
     private String type; // e.g., "chart", "table"
     private String data; // JSON data for the component
 
+
     // Getters and Setters
     public Long getId() {
         return id;

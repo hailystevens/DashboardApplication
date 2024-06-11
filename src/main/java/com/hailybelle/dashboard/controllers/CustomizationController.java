@@ -1,4 +1,4 @@
-package com.yourname.dashboard.controllers;
+package com.hailybelle.dashboard.controllers;
 
 import com.hailybelle.dashboard.models.Customization;
 import com.hailybelle.dashboard.services.CustomizationService;

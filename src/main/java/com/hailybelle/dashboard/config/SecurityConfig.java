@@ -1,14 +1,12 @@
 package com.hailybelle.dashboard.config;
 
 import com.hailybelle.dashboard.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -16,8 +14,11 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    public SecurityConfig(UserService userService) {
+        this.userService = userService;
+    }
 
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
@@ -29,7 +30,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/resources/**", "/registration", "/login", "/create-dashboard").permitAll()
+                                .requestMatchers("/resources/**", "/registration", "/login", "/", "/dashboard-generator", "/select-template").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(formLogin ->
@@ -50,9 +51,5 @@ public class SecurityConfig {
         return authConfig.getAuthenticationManager();
     }
 }
-
-
-
-
 
 
