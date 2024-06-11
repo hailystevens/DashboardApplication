@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Data Entry</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Dashboard</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/dashboard">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/data">Data Entry</a></li>
+            <li class="nav-item"><a class="nav-link" href="/customize">Customize</a></li>
+            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="/share">Share</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h4>Data Entry</h4>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/data}" th:object="${dataEntry}" method="post">
+                <div class="form-group">
+                    <label for="data">Data:</label>
+                    <textarea class="form-control" id="data" th:field="*{data}" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

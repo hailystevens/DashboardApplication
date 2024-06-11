@@ -1,0 +1,23 @@
+<!-- customize.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customize</title>
+</head>
+<body>
+<h1>Customize Dashboard</h1>
+<form th:action="@{/customize}" th:object="${customization}" method="post">
+    <label for="primaryColor">Primary Color:</label>
+    <input type="color" id="primaryColor" th:field="*{primaryColor}">
+    <label for="secondaryColor">Secondary Color:</label>
+    <input type="color" id="secondaryColor" th:field="*{secondaryColor}">
+    <label for="font">Font:</label>
+    <select id="font" th:field="*{font}">
+        <option value="Arial">Arial</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Times New Roman">Times New Roman</option>
+    </select>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

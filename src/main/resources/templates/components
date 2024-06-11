@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard Components</title>
+</head>
+<body>
+    <h1>Add Dashboard Component</h1>
+    <form th:action="@{/components}" th:object="${dashboardComponent}" method="post">
+        <label for="type">Component Type:</label>
+        <select id="type" th:field="*{type}">
+            <option value="chart">Chart</option>
+            <option value="table">Table</option>
+        </select>
+        <label for="data">Data (JSON):</label>
+        <textarea id="data" th:field="*{data}"></textarea>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
