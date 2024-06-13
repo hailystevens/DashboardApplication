@@ -18,7 +18,7 @@ public class DashboardController {
     @GetMapping("/create")
     public String showCreateDashboardForm(Model model) {
         model.addAttribute("dashboard", new Dashboard());
-        return "create-dashboard";
+        return "create_dashboard";
     }
 
     @PostMapping("/process")
@@ -26,11 +26,17 @@ public class DashboardController {
             @RequestParam("dashboardTitle") String title,
             @RequestParam("dataSource") String dataSource,
             @RequestParam("componentTitle") String componentTitle,
+            @RequestParam("theme") String theme,
+            @RequestParam("showGrid") boolean showGrid,
+            @RequestParam("refreshInterval") int refreshInterval,
             Model model) {
         Dashboard dashboard = new Dashboard();
         dashboard.setTitle(title);
         dashboard.setDataSource(dataSource);
         dashboard.setComponentTitle(componentTitle);
+        dashboard.setTheme(theme);
+        dashboard.setShowGrid(showGrid);
+        dashboard.setRefreshInterval(refreshInterval);
 
         dashboardService.save(dashboard);
         model.addAttribute("dashboard", dashboard);
@@ -42,18 +48,35 @@ public class DashboardController {
     public String configureDashboard(@RequestParam("id") Long id, Model model) {
         Dashboard dashboard = dashboardService.findById(id);
         model.addAttribute("dashboard", dashboard);
-        return "create-dashboard"; // Updated to use create-dashboard.html
+        return "dashboard";
     }
 
     @PostMapping("/upload-csv")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam("id") Long id, Model model) {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, Model model) {
         // Logic to handle CSV file upload
-        // Parse the file and save data as needed
+        return "redirect:/dashboard/configure";
+    }
 
+    @PostMapping("/generate-dashboard")
+    public String generateDashboard(@RequestParam("id") Long id, Model model) {
         Dashboard dashboard = dashboardService.findById(id);
-        // Assuming you add data from CSV to the dashboard here
         model.addAttribute("dashboard", dashboard);
-        return "redirect:/dashboard/configure?id=" + id;
+        return "dashboard";
+    }
+
+    @GetMapping("/preview-dashboard")
+    public String previewDashboard(@RequestParam("id") Long id, Model model) {
+        Dashboard dashboard = dashboardService.findById(id);
+        model.addAttribute("dashboard", dashboard);
+        return "dashboard";
+    }
+
+    @GetMapping("/download-dashboard")
+    public String downloadDashboard(@RequestParam("id") Long id, Model model) {
+        Dashboard dashboard = dashboardService.findById(id);
+        model.addAttribute("dashboard", dashboard);
+        return "dashboard";
     }
 }
+
 
