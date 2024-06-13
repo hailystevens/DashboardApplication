@@ -2,18 +2,72 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Dashboard Components</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>Add Dashboard Component</h1>
-    <form th:action="@{/components}" th:object="${dashboardComponent}" method="post">
-        <label for="type">Component Type:</label>
-        <select id="type" th:field="*{type}">
-            <option value="chart">Chart</option>
-            <option value="table">Table</option>
-        </select>
-        <label for="data">Data (JSON):</label>
-        <textarea id="data" th:field="*{data}"></textarea>
-        <button type="submit">Save</button>
-    </form>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Capstone Project</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary ml-3" href="#">Create Account</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Dashboard Components</h1>
+        <p class="lead">Add or customize a component to your dashboard.</p>
+
+        <!-- Form to add or customize a component -->
+        <form th:action="@{/process-component}" method="post">
+            <input type="hidden" name="dashboardId" th:value="${component.dashboardId}">
+            <div class="form-group">
+                <label for="componentTitle">Component Title</label>
+                <input type="text" class="form-control" id="componentTitle" name="componentTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Component Type</label>
+                <select class="form-control" id="type" name="type" th:field="*{type}">
+                    <option value="chart">Chart</option>
+                    <option value="table">Table</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="data">Data (JSON)</label>
+                <textarea class="form-control" id="data" name="data" th:field="*{data}"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Component</button>
+        </form>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-dark text-white">
+    <div class="container text-center">
+        <span class="text-muted">Very dash, much board.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+

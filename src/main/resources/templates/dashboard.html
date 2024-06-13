@@ -2,65 +2,87 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Dashboard</title>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="#">Dashboard</a>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item"><a class="nav-link" href="/dashboard">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="/data">Data Entry</a></li>
-      <li class="nav-item"><a class="nav-link" href="/customize">Customize</a></li>
-      <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
-      <li class="nav-item"><a class="nav-link" href="/share">Share</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-header">
-      <h4>Dashboard</h4>
-    </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-md-6" th:each="component : ${components}">
-          <div class="chart-container" th:if="${component.type == 'chart'}">
-            <canvas id="chart-[[${component.id}]]"></canvas>
-            <script th:inline="javascript">
-              var ctx = document.getElementById('chart-[[${component.id}]]').getContext('2d');
-              var data = /*[[${component.data}]]*/ '[]';
-              var chart = new Chart(ctx, {
-                type: 'bar',
-                data: JSON.parse(data),
-                options: {
-                  responsive: true,
-                  scales: {
-                    y: {
-                      beginAtZero: true
-                    }
-                  }
-                }
-              });
-            </script>
-          </div>
-          <div th:if="${component.type == 'table'}">
-            <table class="table">
-              <thead>
-              <!-- Add table header based on component.data -->
-              </thead>
-              <tbody>
-              <!-- Add table rows based on component.data -->
-              </tbody>
-            </table>
-          </div>
-        </div>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Capstone Project</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <a class="btn btn-primary ml-3" href="#">Create Account</a>
       </div>
     </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container text-center mt-5">
+    <h1 class="display-4">Dashboard</h1>
+    <p class="lead">Manage, generate, preview, and download your dashboard.</p>
+
+    <!-- Form to add a component -->
+    <form th:action="@{/process-component}" method="post">
+      <input type="hidden" name="dashboardId" th:value="${component.dashboardId}">
+      <div class="form-group">
+        <label for="componentTitle">Component Title</label>
+        <input type="text" class="form-control" id="componentTitle" name="componentTitle" required>
+      </div>
+      <div class="form-group">
+        <label for="type">Component Type</label>
+        <select class="form-control" id="type" name="type" th:field="*{type}">
+          <option value="chart">Chart</option>
+          <option value="table">Table</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="data">Data (JSON)</label>
+        <textarea class="form-control" id="data" name="data" th:field="*{data}"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save Component</button>
+    </form>
+
+    <!-- Form to generate the dashboard -->
+    <form th:action="@{/generate-dashboard}" method="post" class="mt-5">
+      <button type="submit" class="btn btn-secondary">Generate Dashboard</button>
+    </form>
+
+    <!-- Form to preview the dashboard -->
+    <form th:action="@{/preview-dashboard}" method="get" class="mt-5">
+      <button type="submit" class="btn btn-info">Preview Dashboard</button>
+    </form>
+
+    <!-- Form to download the dashboard -->
+    <form th:action="@{/download-dashboard}" method="get" class="mt-5">
+      <button type="submit" class="btn btn-success">Download Dashboard</button>
+    </form>
   </div>
-</div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-dark text-white">
+  <div class="container text-center">
+    <span class="text-muted">Very dash, much board.</span>
+  </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>
+
