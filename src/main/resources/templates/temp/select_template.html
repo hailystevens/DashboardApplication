@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select a Template</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .templates {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .template-card {
+            background-color: #2d2d2d;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            color: #e0e0e0;
+            margin: 10px;
+        }
+
+        .template-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            border: none;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Select a Template</h1>
+</header>
+<main>
+    <div class="templates">
+        <div class="template-card">
+            <h2>Template 1</h2>
+            <img src="path/to/thumbnail1.png" alt="Template 1 Thumbnail">
+            <a class="btn-primary" href="template1.html">Select Template</a>
+        </div>
+        <div class="template-card">
+            <h2>Template 2</h2>
+            <img src="path/to/thumbnail2.png" alt="Template 2 Thumbnail">
+            <a class="btn-primary" href="template2.html">Select Template</a>
+        </div>
+        <div class="template-card">
+            <h2>Template 3</h2>
+            <img src="path/to/thumbnail3.png" alt="Template 3 Thumbnail">
+            <a class="btn-primary" href="template3.html">Select Template</a>
+        </div>
+    </div>
+</main>
+<footer class="text-center text-white">
+    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2024 Haily Belle Stevens. All rights reserved.
+        <a class="text-white" href="https://github.com/hailystevens">Do not click here</a>
+    </div>
+</footer>
+</body>
+</html>

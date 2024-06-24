@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+            color: #e0e0e0;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #444;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .widget {
+            background-color: #2d2d2d;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .widget h2 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .full-width {
+            grid-column: span 3;
+        }
+
+        .kpi {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+
+        .kpi div {
+            text-align: center;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            margin: 5px;
+        }
+
+        .comments {
+            background-color: #2d2d2d;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            color: #e0e0e0;
+            grid-column: span 3;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .filter-container select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #333;
+            color: #e0e0e0;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            border: none;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-secondary, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+            background: transparent;
+            border: 2px solid #00acc1;
+            color: #00acc1;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background: #00acc1;
+            color: #ffffff;
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>Dashboard Template 1</h1>
+</header>
+<nav>
+    <a href="#visualizations">Visualizations</a>
+    <a href="#kpis">KPIs</a>
+    <a href="#filters">Filters</a>
+    <a href="#comments">Comments</a>
+</nav>
+<main>
+    <div class="filter-container full-width">
+        <select id="filter-time-period">
+            <option value="last-week">Last Week</option>
+            <option value="last-month">Last Month</option>
+            <option value="last-year">Last Year</option>
+        </select>
+        <select id="filter-category">
+            <option value="category-1">Category 1</option>
+            <option value="category-2">Category 2</option>
+            <option value="category-3">Category 3</option>
+        </select>
+    </div>
+    <div class="widget" id="visualizations">
+        <h2>Demography</h2>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+    <div class="widget">
+        <h2>Ratings</h2>
+        <div class="chart-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+    <div class="widget">
+        <h2>Job Details</h2>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+    <div class="widget full-width" id="kpis">
+        <h2>Key Performance Indicators</h2>
+        <div class="kpi">
+            <div>
+                <h3>530</h3>
+                <p>Total Staff</p>
+            </div>
+            <div>
+                <h3>163</h3>
+                <p>Total Attrition</p>
+            </div>
+            <div>
+                <h3>367</h3>
+                <p>Total Active</p>
+            </div>
+            <div>
+                <h3>30.8%</h3>
+                <p>Attrition Rate</p>
+            </div>
+        </div>
+    </div>
+    <div class="widget full-width" id="comments">
+        <h2>Comments and Recommendations</h2>
+        <p>Comment 1: Analysis shows that the majority of attrition is in the 31-35 age range.</p>
+        <p>Comment 2: Performance ratings indicate a need for further training in the 41-45 age group.</p>
+    </div>
+    <div class="button-container">
+        <button class="btn-primary" onclick="window.location.href='create_dashboard.html'">Choose This Template</button>
+        <button class="btn-secondary" onclick="window.location.href='select_template.html'">Go Back</button>
+    </div>
+</main>
+<footer class="text-center text-white">
+    <div class="p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2024 Haily Belle Stevens. All rights reserved.
+        <a class="text-white" href="https://github.com/hailystevens">Do not click here</a>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['26-30 years', '31-35 years', '36-40 years', '41-45 years', '46-50 years'],
+                datasets: [{
+                    label: 'Attrition',
+                    data: [46, 62, 41, 13, 1],
+                    backgroundColor: '#ff6384'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: true,
+                            color: '#555'
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Average', 'Below Average', 'Poor', 'Good', 'Excellent'],
+                datasets: [{
+                    label: 'Performance Rating',
+                    data: [6.8, 5.4, 3.2, 8.1, 9.0],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: '#ff6384',
+                    borderWidth: 1,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            display: true,
+                            color: '#555'
+                        }
+                    }
+                }
+            }
+        });
+
+        var ctxPie = document.getElementById('pieChart').getContext('2d');
+        var pieChart = new Chart(ctxPie, {
+            type: 'pie',
+            data: {
+                labels: ['Low', 'High', 'Very High', 'Very Low'],
+                datasets: [{
+                    data: [62, 59, 22, 20],
+                    backgroundColor: ['#36a2eb', '#ff6384', '#ffcd56', '#4bc0c0']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    }
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

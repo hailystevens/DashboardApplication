@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us - dash.io</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            z-index: 1;
+            background-color: #1f1f1f;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 5px 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand, .nav-link, .btn-outline-light, .text-white {
+            color: #e0e0e0 !important;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            border: none;
+            color: #ffffff;
+        }
+
+        .container-fluid {
+            padding: 0 15px;
+        }
+
+        .icon-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .icon-container i {
+            font-size: 2rem;
+            margin: 0 15px;
+            color: #e0e0e0;
+        }
+
+        footer a {
+            color: #00acc1 !important;
+        }
+
+        main {
+            padding-top: 80px;
+            padding-bottom: 20px;
+        }
+
+        .about-container {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .about-container h2 {
+            color: #00acc1;
+        }
+
+        .about-container a {
+            color: #00bfa5;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">dash.io</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="create_dashboard.html">Create Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container text-center mt-5">
+        <h1 class="display-4">About Us</h1>
+        <p class="lead">Learn more about dash.io and our mission.</p>
+        <div class="about-container">
+            <h2>Our Mission</h2>
+            <p>At dash.io, we strive to make data visualization accessible to everyone. Our platform allows users to create, analyze, and share data dashboards with ease, without needing to write any code.</p>
+
+            <h2>Our Team</h2>
+            <p>Our team is composed of experienced data scientists, software engineers, and UX designers who are passionate about making data insights available to all.</p>
+
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, please don't hesitate to <a href="contact.html">contact us</a>. We'd love to hear from you!</p>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container text-center">
+        <span class="text-muted">Very dash, much board.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

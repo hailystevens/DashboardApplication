@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Build a Dashboard in Minutes Without Code</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            width: 100%;
+            background-color: #333;
+            color: #e0e0e0;
+            padding: 0.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #e0e0e0;
+        }
+
+        .top-bar .nav-center {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed; /* Set the navbar to fixed position */
+            z-index:1; /*Add this*/
+            background-color: #1f1f1f;
+            top: 0; /* Position the navbar at the top of the page */
+            left:0;
+            margin: 0px;
+            padding:5px 10px 5px 10px;
+            width: 100%; /* Full width */
+            right: 0;
+            display: flow;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand, .nav-link, .btn-outline-light, .text-white {
+            color: #e0e0e0 !important;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        /* Buttons */
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            border: none;
+            color: #ffffff;
+        }
+
+        .btn-secondary, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+            background: transparent;
+            border: 2px solid #00acc1;
+            color: #00acc1;
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background: #00acc1;
+            color: #ffffff;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            width: 100%;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        main h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        main p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+        }
+
+        .container-fluid {
+            padding: 0 15px;
+        }
+
+        .icon-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .icon-container i {
+            font-size: 2rem;
+            margin: 0 15px;
+            color: #e0e0e0;
+        }
+
+        .form-outline input {
+            background-color: #333333;
+            border: 1px solid #00acc1;
+            color: #e0e0e0;
+        }
+
+        .form-outline label {
+            color: #00acc1;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f1f1f;
+            border-top: 2px solid #333;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #00acc1 !important;
+        }
+
+        /* Steps */
+        .steps {
+            margin-top: 40px;
+        }
+
+        .steps h2 {
+            color: #00acc1;
+        }
+
+        .steps h2 span {
+            color: #00acc1;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">dash.io</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container-fluid">
+        <h1>Start visualizing data in minutes</h1>
+        <p>dash.io is designed to collect, analyze, visualize, and communicate data.</p>
+
+        <div class="steps">
+            <div class="steps">
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <h2>1. <span>Pick your primary data source</span></h2>
+                        <img src="/images/example-image1.jpg" alt="Data Source" class="img-fluid">
+                    </div>
+                    <div class="col-md-4">
+                        <h2>2. <span>Pick analytical add-ons</span></h2>
+                        <img src="/images/example-image2.jpg" alt="Analytical Add-ons" class="img-fluid">
+                    </div>
+                    <div class="col-md-4">
+                        <h2>3. <span>Make it look good</span></h2>
+                        <iframe width="320" height="240" src="https://www.youtube.com/embed/z26zbiGJnd4" frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a class="btn btn-primary btn-lg" href="create_dashboard.html">Get Started</a>
+        </div>
+    </div>
+</main>
+
+<footer class="text-center text-white">
+    <div class="icon-container">
+        <a href="https://www.linkedin.com/in/hailystevens/"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/hailystevens"><i class="fab fa-github"></i></a>
+    </div>
+
+    <div class="container">
+        <section class="mb-4">
+            <form id="subscribe-form">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-auto">
+                        <p class="pt-2"><strong>Sign up for our newsletter</strong></p>
+                    </div>
+                    <div class="col-md-5 col-12">
+                        <div class="form-outline form-white mb-4">
+                            <input type="email" id="form5Example2" class="form-control"/>
+                            <label class="form-label" for="form5Example2">Email address</label>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-outline-light mb-4">Subscribe</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="create_dashboard.html" class="text-white">Create your dashboard</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="registration.html" class="text-white">Sign in/Sign up</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="contact.html" class="text-white">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <ul class="list-unstyled mb-0">
+                    <li><a href="share.html" class="text-white">Share with friends</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Haily Belle Stevens. All rights reserved.
+            <a class="text-white" href="https://github.com/hailystevens">Do not click here</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Variables
+        const subscribeForm = document.querySelector('#subscribe-form');
+        const emailInput = document.querySelector('#form5Example2');
+
+        // Functions
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = emailInput.value;
+            if (validateEmail(email)) {
+                alert('Subscribed successfully with email: ' + email);
+                emailInput.value = '';
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Event Listeners
+        if (subscribeForm) {
+            subscribeForm.addEventListener('submit', handleSubscribe);
+        }
+    });
+</script>
+</body>
+</html>

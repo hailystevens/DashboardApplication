@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - dash.io</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            z-index: 1;
+            background-color: #1f1f1f;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 5px 10px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand, .nav-link, .btn-outline-light, .text-white {
+            color: #e0e0e0 !important;
+        }
+
+        .navbar-brand:hover, .nav-link:hover {
+            color: #ffffff !important;
+        }
+
+        .container-fluid {
+            padding: 0 15px;
+        }
+
+        .icon-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .icon-container i {
+            font-size: 2rem;
+            margin: 0 15px;
+            color: #e0e0e0;
+        }
+
+        form h1 {
+            font-weight: bold;
+            margin: 0;
+            color: #ffffff;
+        }
+
+        form input, form textarea {
+            background-color: #333;
+            border: 1px solid #555;
+            padding: 12px 15px;
+            margin: 8px 0;
+            width: 100%;
+            color: #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .form-group label {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #00acc1;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            border: none;
+            color: #ffffff;
+        }
+
+        .button {
+            border: none;
+            padding: 12px 45px;
+            margin-top: 20px;
+            background: linear-gradient(to right, #00bfa5, #00acc1);
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 80ms ease-in;
+        }
+
+        .button:active {
+            transform: scale(0.95);
+        }
+
+        .button:focus {
+            outline: none;
+        }
+
+        .form-text {
+            color: #e0e0e0;
+        }
+
+        footer a {
+            color: #00acc1 !important;
+        }
+
+        main {
+            padding-top: 80px;
+            padding-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: #1f1f1f;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">dash.io</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="create_dashboard.html">Create Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Contact Us</h1>
+        <p class="lead">We'd love to hear from you. Please fill out the form below to get in touch.</p>
+        <div class="form-container">
+            <form id="contactForm" method="post" action="/contact/submit">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" placeholder="Enter your message" rows="5"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn button">Send Message</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container text-center">
+        <span class="text-muted">Very dash, much board.</span>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#contactForm').on('submit', function (event) {
+            event.preventDefault();
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                url: '/contact/submit',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    alert('Message sent successfully!');
+                },
+                error: function (error) {
+                    alert('An error occurred while sending the message.');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

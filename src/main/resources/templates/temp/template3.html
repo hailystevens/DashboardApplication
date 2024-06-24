@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .widget {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .widget.large {
+            grid-column: span 2;
+        }
+
+        .widget.small {
+            grid-column: span 1;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Advanced Dashboard</h1>
+</header>
+<main>
+    <div class="widget large">
+        <h2>Chart 1</h2>
+        <!-- Chart goes here -->
+    </div>
+    <div class="widget small">
+        <h2>Table 1</h2>
+        <!-- Table goes here -->
+    </div>
+    <div class="widget small">
+        <h2>Chart 2</h2>
+        <!-- Chart goes here -->
+    </div>
+    <div class="widget small">
+        <h2>Table 2</h2>
+        <!-- Table goes here -->
+    </div>
+    <div class="widget large">
+        <h2>Chart 3</h2>
+        <!-- Chart goes here -->
+    </div>
+</main>
+</body>
+</html>
