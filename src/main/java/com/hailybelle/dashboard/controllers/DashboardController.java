@@ -25,6 +25,8 @@ public class DashboardController {
     public String processDashboard(
             @RequestParam("dashboardTitle") String title,
             @RequestParam("dataSource") String dataSource,
+            @RequestParam(value = "file", required = false) MultipartFile file,
+            @RequestParam(value = "dbConnection", required = false) String dbConnection,
             @RequestParam("componentTitle") String componentTitle,
             @RequestParam("theme") String theme,
             @RequestParam("showGrid") boolean showGrid,
@@ -37,6 +39,17 @@ public class DashboardController {
         dashboard.setTheme(theme);
         dashboard.setShowGrid(showGrid);
         dashboard.setRefreshInterval(refreshInterval);
+
+        if ("csv".equals(dataSource) && file != null) {
+            // Process CSV file
+            dashboardService.processCsvFile(file);
+        } else if ("database".equals(dataSource) && dbConnection != null) {
+            // Process database connection
+            dashboardService.retrieveDataFromDatabase(dbConnection);
+        } else {
+            model.addAttribute("error", "Invalid data source or missing file/connection string");
+            return "create_dashboard";
+        }
 
         dashboardService.save(dashboard);
         model.addAttribute("dashboard", dashboard);
