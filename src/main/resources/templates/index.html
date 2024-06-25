@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build a Dashboard in Minutes Without Code</title>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* Reset and Base Styles */
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -53,12 +55,12 @@
         /* Navbar */
         .navbar {
             position: fixed; /* Set the navbar to fixed position */
-            z-index:1; /*Add this*/
+            z-index: 1; /* Add this */
             background-color: #1f1f1f;
             top: 0; /* Position the navbar at the top of the page */
-            left:0;
+            left: 0;
             margin: 0px;
-            padding:5px 10px 5px 10px;
+            padding: 5px 10px 5px 10px;
             width: 100%; /* Full width */
             right: 0;
             display: flow;
@@ -70,25 +72,30 @@
             color: #e0e0e0 !important;
         }
 
+        .navbar-brand {
+            font-family: 'Karla', sans-serif;
+            font-weight: 600;
+        }
+
         .navbar-brand:hover, .nav-link:hover {
             color: #ffffff !important;
         }
 
         /* Buttons */
         .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-            background: linear-gradient(to right, #00bfa5, #00acc1);
+            background: linear-gradient(to right, #00bfa5, #7364d2);
             border: none;
             color: #ffffff;
         }
 
         .btn-secondary, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
             background: transparent;
-            border: 2px solid #00acc1;
-            color: #00acc1;
+            border: 2px solid #7364d2;
+            color: #7364d2;
         }
 
         .btn-secondary:hover, .btn-secondary:focus {
-            background: #00acc1;
+            background: #7364d2;
             color: #ffffff;
         }
 
@@ -104,6 +111,15 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
 
         main p {
@@ -128,12 +144,12 @@
 
         .form-outline input {
             background-color: #333333;
-            border: 1px solid #00acc1;
+            border: 1px solid #7364d2;
             color: #e0e0e0;
         }
 
         .form-outline label {
-            color: #00acc1;
+            color: #7364d2;
         }
 
         /* Footer */
@@ -145,7 +161,7 @@
         }
 
         footer a {
-            color: #00acc1 !important;
+            color: #7364d2 !important;
         }
 
         /* Steps */
@@ -154,11 +170,17 @@
         }
 
         .steps h2 {
-            color: #00acc1;
+            color: #7364d2;
         }
 
         .steps h2 span {
-            color: #00acc1;
+            color: #7364d2;
+        }
+
+        /* Image Resize */
+        .steps img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -192,22 +214,20 @@
         <p>dash.io is designed to collect, analyze, visualize, and communicate data.</p>
 
         <div class="steps">
-            <div class="steps">
-                <div class="row mt-5">
-                    <div class="col-md-4">
-                        <h2>1. <span>Pick your primary data source</span></h2>
-                        <img src="/images/example-image1.jpg" alt="Data Source" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <h2>2. <span>Pick analytical add-ons</span></h2>
-                        <img src="/images/example-image2.jpg" alt="Analytical Add-ons" class="img-fluid">
-                    </div>
-                    <div class="col-md-4">
-                        <h2>3. <span>Make it look good</span></h2>
-                        <iframe width="320" height="240" src="https://www.youtube.com/embed/z26zbiGJnd4" frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    </div>
+            <div class="row mt-5">
+                <div class="col-md-4 text-center">
+                    <h2>1. <span>Pick your primary data source</span></h2>
+                    <img src="/static/images/example-image1.jpg" alt="Data Source" class="img-fluid" style="width: 320px; height: 240px;">
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2>2. <span>Pick analytical add-ons</span></h2>
+                    <img src="/static/images/example-image2.jpg" alt="Analytical Add-ons" class="img-fluid" style="width: 320px; height: 240px;">
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2>3. <span>Make it look good</span></h2>
+                    <iframe width="320" height="240" src="https://www.youtube.com/embed/z26zbiGJnd4" frameborder="0"
+                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                 </div>
             </div>
         </div>

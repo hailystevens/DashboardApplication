@@ -3,103 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+    <title>Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #1b1b1b;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .navbar {
-            background-color: #1f1f1f;
-            border-bottom: 2px solid #333;
-            padding: 0.5rem 1rem;
-        }
-
-        .navbar-brand, .nav-link, .btn-outline-light, .text-white {
-            color: #e0e0e0 !important;
-        }
-
-        .navbar-brand:hover, .nav-link:hover {
-            color: #ffffff !important;
-        }
-
-        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-            background: linear-gradient(to right, #00bfa5, #00acc1);
-            border: none;
-            color: #ffffff;
-        }
-
-        .main-container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .form-container {
-            background-color: #1f1f1f;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-            width: 100%;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        h1 {
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #ffffff;
-        }
-
-        input {
-            background-color: #333;
-            border: 1px solid #555;
-            padding: 12px 15px;
-            margin: 10px 0;
-            width: 100%;
-            color: #e0e0e0;
-            border-radius: 4px;
-        }
-
-        .btn-custom {
-            border: none;
-            padding: 12px 45px;
-            margin-top: 10px;
-            background: linear-gradient(to right, #00bfa5, #00acc1);
-            color: #ffffff;
-            font-size: 12px;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: transform 80ms ease-in;
-        }
-
-        .btn-custom:hover {
-            background: linear-gradient(to right, #00bfa594, #00acc190);
-        }
-
-        .footer {
-            background-color: #1f1f1f;
-            border-top: 2px solid #333;
-            padding: 20px 0;
-            text-align: center;
-            color: #e0e0e0;
-        }
-
-        footer a {
-            color: #00acc1 !important;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Ensure this path is correct -->
 </head>
 <body>
 <header>
@@ -119,7 +29,7 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                 </ul>
-                <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+                <a class="btn btn-primary ml-3" href="sign_in.html">Sign In</a>
             </div>
         </div>
     </nav>
@@ -127,11 +37,13 @@
 
 <main class="main-container">
     <div class="form-container">
-        <h1>Sign Up</h1>
-        <form id="signUpForm" action="/auth/signup" method="post">
-            <input type="text" id="signUpFirstName" name="firstName" placeholder="First Name" required />
-            <input type="text" id="signUpLastName" name="lastName" placeholder="Last Name" required />
+        <h1>Register</h1>
+        <form id="registrationForm" action="/auth/signup" method="post">
+            <label for="signUpName">Name</label>
+            <input type="text" id="signUpName" name="name" placeholder="Name" required />
+            <label for="signUpEmail">Email</label>
             <input type="email" id="signUpEmail" name="email" placeholder="Email" required />
+            <label for="signUpPassword">Password</label>
             <input type="password" id="signUpPassword" name="password" placeholder="Password" required />
             <button class="btn-custom" type="submit">Sign Up</button>
         </form>

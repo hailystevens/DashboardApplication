@@ -4,6 +4,9 @@
     <title>Create and Configure Your Dashboard</title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -36,8 +39,13 @@
             align-items: center;
         }
 
-        .navbar-brand, .nav-link, .btn-outline-light, .text-white {
+        .nav-link, .btn-outline-light, .text-white {
             color: #e0e0e0 !important;
+        }
+
+        .navbar-brand {
+            font-family: 'Karla', sans-serif;
+            font-weight: 600;
         }
 
         .navbar-brand:hover, .nav-link:hover {
@@ -78,11 +86,11 @@
         .form-group label {
             margin-top: 15px;
             font-weight: bold;
-            color: #00acc1;
+            color: #7364d2;
         }
 
         .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-            background: linear-gradient(to right, #00bfa5, #00acc1);
+            background: linear-gradient(to right, #00bfa5, #7364d2);
             border: none;
             color: #ffffff;
         }
@@ -91,7 +99,7 @@
             border: none;
             padding: 12px 45px;
             margin-top: 20px;
-            background: linear-gradient(to right, #00bfa5, #00acc1);
+            background: linear-gradient(to right, #00bfa5, #7364d2);
             color: #ffffff;
             font-size: 14px;
             cursor: pointer;
@@ -112,7 +120,7 @@
         }
 
         footer a {
-            color: #00acc1 !important;
+            color: #7364d2 !important;
         }
 
         main {
@@ -169,8 +177,6 @@
                         <option value="database">Database Connection</option>
                     </select>
                     <small class="form-text text-muted">Choose the source of your data. CSV is recommended for beginners.</small>
-                    <small class="form-text text-muted mt-2">
-                    </small>
                 </div>
                 <div class="form-group" id="csvUploadSection" style="display: none;">
                     <label for="file">Upload CSV File</label>
