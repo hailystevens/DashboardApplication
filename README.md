@@ -32,4 +32,4 @@ A simple dashboard management system created as part of a skill-based assessment
 2. Open `index.html` in a web browser.
 
 ## GitHub Link
-[GitHub Repository]([https://github.com/your-github-repo](https://github.com/hailystevens/capstone))
+[GitHub Repository](https://github.com/hailystevens/capstone)
