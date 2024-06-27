@@ -63,7 +63,7 @@
             padding: 5px 10px 5px 10px;
             width: 100%; /* Full width */
             right: 0;
-            display: flow;
+            display: flex;
             justify-content: space-between;
             align-items: center;
         }
@@ -82,19 +82,23 @@
         }
 
         /* Buttons */
-        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        .btn-primary {
             background: linear-gradient(to right, #00bfa5, #7364d2);
             border: none;
             color: #ffffff;
         }
 
-        .btn-secondary, .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #009e8a, #6042b1);
+        }
+
+        .btn-secondary {
             background: transparent;
             border: 2px solid #7364d2;
             color: #7364d2;
         }
 
-        .btn-secondary:hover, .btn-secondary:focus {
+        .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
             background: #7364d2;
             color: #ffffff;
         }
@@ -183,6 +187,7 @@
             height: auto;
         }
     </style>
+
 </head>
 
 <body>

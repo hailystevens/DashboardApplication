@@ -49,6 +49,11 @@ function fetchDashboardData() {
     });
 }
 
+// function onSubmit() {
+//     console.log("on submit function called");
+//     return false;
+// }
+
 // Trigger AJAX request on document load
 $(document).ready(function() {
     fetchDashboardData();

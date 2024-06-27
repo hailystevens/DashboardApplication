@@ -3,7 +3,6 @@
 <head>
     <title>Data Entry</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -25,15 +24,38 @@
             <h4>Data Entry</h4>
         </div>
         <div class="card-body">
-            <form th:action="@{/data}" th:object="${dataEntry}" method="post">
+            <form id="dataEntryForm">
                 <div class="form-group">
-                    <label for="data">Data:</label>
-                    <textarea class="form-control" id="data" th:field="*{data}" rows="5"></textarea>
+                    <label for="label">Label:</label>
+                    <input type="text" class="form-control" id="label" required>
+                </div>
+                <div class="form-group">
+                    <label for="value">Value:</label>
+                    <input type="number" class="form-control" id="value" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('dataEntryForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const label = document.getElementById('label').value;
+            const value = document.getElementById('value').value;
+
+            let data = JSON.parse(localStorage.getItem('dashboardData')) || { x: [], y: [], title: 'Sample Chart', xAxisTitle: 'X-axis Label', yAxisTitle: 'Y-axis Label' };
+            data.x.push(label);
+            data.y.push(parseFloat(value));
+
+            localStorage.setItem('dashboardData', JSON.stringify(data));
+            alert('Data saved! Go to the dashboard to see the updated chart.');
+        });
+    });
+</script>
 </body>
 </html>

@@ -23,7 +23,74 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
-        }    </style>
+        }
+
+        .error {
+            color: red;
+            font-size: 0.875rem;
+        }
+
+        .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+            background: linear-gradient(to right, #00bfa5, #7364d2);
+            border: none;
+            color: #ffffff;
+            transition: background 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, #009e8a, #6042b1);
+        }
+
+        .btn-custom {
+            border: none;
+            padding: 12px 45px;
+            margin-top: 10px;
+            background: linear-gradient(to right, #00bfa5, #7364d2);
+            color: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 80ms ease-in, background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background: linear-gradient(to right, #009e8a, #6042b1);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid #7364d2;
+            color: #7364d2;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-outline-light:hover {
+            background: #7364d2;
+            color: #ffffff;
+        }
+
+        .table-dark {
+            background-color: #1b1b1b;
+            color: #e0e0e0;
+        }
+
+        .table-dark th, .table-dark td {
+            border-color: #2c2c2c;
+        }
+
+        .modal-content {
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #2c2c2c;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #2c2c2c;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -49,19 +116,22 @@
 </header>
 
 <main class="container contact-container mt-5" align="center">
-    <h1 class="contact-header" >Contact Us</h1>
-    <form>
+    <h1 class="contact-header">Contact Us</h1>
+    <form id="contactForm">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" placeholder="Enter your name">
+            <div class="error" id="nameError"></div>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" class="form-control" id="email" placeholder="Enter your email">
+            <div class="error" id="emailError"></div>
         </div>
         <div class="form-group">
             <label for="message">Message:</label>
             <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+            <div class="error" id="messageError"></div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -77,5 +147,52 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="/static/js/scripts.js"></script> <!-- External JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const contactForm = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+
+        const nameRegex = /^[a-zA-Z\s]{3,}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const messageRegex = /^.{10,}$/;
+
+        contactForm.addEventListener('submit', (event) => {
+            let valid = true;
+
+            // Name validation
+            if (!nameRegex.test(nameInput.value)) {
+                nameError.textContent = 'Please enter a valid name (at least 3 letters).';
+                valid = false;
+            } else {
+                nameError.textContent = '';
+            }
+
+            // Email validation
+            if (!emailRegex.test(emailInput.value)) {
+                emailError.textContent = 'Please enter a valid email address.';
+                valid = false;
+            } else {
+                emailError.textContent = '';
+            }
+
+            // Message validation
+            if (!messageRegex.test(messageInput.value)) {
+                messageError.textContent = 'Please enter a message (at least 10 characters).';
+                valid = false;
+            } else {
+                messageError.textContent = '';
+            }
+
+            if (!valid) {
+                event.preventDefault();
+            }
+        });
+    });
+</script>
 </body>
 </html>

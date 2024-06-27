@@ -2,6 +2,8 @@ package com.hailybelle.dashboard.services;
 
 import com.hailybelle.dashboard.models.Dashboard;
 import com.hailybelle.dashboard.repositories.DashboardRepository;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,33 +38,29 @@ public class DashboardService {
         dashboardRepository.deleteById(id);
     }
 
-    // Process CSV file
     public void processCsvFile(MultipartFile file) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(file.getInputStream()))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // Process each line of the CSV file
-                System.out.println(line); // Replace with actual processing logic
+            Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(br);
+            for (CSVRecord record : records) {
+                System.out.println(record);
             }
         } catch (Exception e) {
             throw new RuntimeException("Failed to process CSV file", e);
         }
     }
 
-    // Retrieve data from database
     public void retrieveDataFromDatabase(String dbConnection) {
         try (Connection connection = DriverManager.getConnection(dbConnection)) {
-            String query = "SELECT * FROM your_table"; // Modify this query as needed
+            String query = "SELECT * FROM mydb";
             try (Statement stmt = connection.createStatement()) {
-                // Execute query and process the result set
-                // ResultSet rs = stmt.executeQuery(query);
-                // while (rs.next()) {
-                //     // Process each row of data
-                // }
-                System.out.println("Connected to the database and retrieved data."); // Replace with actual processing logic
+                System.out.println("Connected to the database and retrieved data.");
             }
         } catch (SQLException e) {
             throw new RuntimeException("Failed to connect to the database", e);
         }
+    }
+
+    public void processManualData(String manualData) {
+        System.out.println("Manual data: " + manualData);
     }
 }

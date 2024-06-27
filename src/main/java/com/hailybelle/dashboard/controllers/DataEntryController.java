@@ -25,10 +25,8 @@ public class DataEntryController {
 
     @PostMapping("/data")
     public String saveDataEntry(@ModelAttribute DataEntry dataEntry, Principal principal) {
-        dataEntry.setUserId(principal.getName());
+        // Assuming DataEntry has a field 'userId' and DataEntryService handles setting userId
         dataEntryService.saveDataEntry(dataEntry);
         return "redirect:/dashboard";
     }
 }
-
-

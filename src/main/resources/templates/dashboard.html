@@ -1,88 +1,163 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
   <title>Dashboard</title>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1b1b1b;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: sticky;
+      z-index: 1;
+      background-color: #1f1f1f;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 5px 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-link, .btn-outline-light, .text-white {
+      color: #e0e0e0 !important;
+    }
+
+    .navbar-brand {
+      font-family: 'Karla', sans-serif;
+      font-weight: 600;
+    }
+
+    .navbar-brand:hover, .nav-link:hover {
+      color: #ffffff !important;
+    }
+
+    main {
+      padding-top: 80px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+
+    #line-chart, #pie-chart {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
 </head>
 <body>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
-      <a class="navbar-brand" href="/">Capstone Project</a>
+      <a class="navbar-brand" href="index.html">dash.io</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="about.html">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/create_dashboard">Create Dashboard</a>
           </li>
         </ul>
-        <a class="btn btn-primary ml-3" href="#">Create Account</a>
+        <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
       </div>
     </div>
   </nav>
 </header>
 
 <main>
-  <div class="container text-center mt-5">
-    <h1 class="display-4">Dashboard</h1>
-    <p class="lead">Manage, generate, preview, and download your dashboard.</p>
-
-    <!-- Form to add a component -->
-    <form th:action="@{/process-component}" method="post">
-      <input type="hidden" name="dashboardId" th:value="${component.dashboardId}">
-      <div class="form-group">
-        <label for="componentTitle">Component Title</label>
-        <input type="text" class="form-control" id="componentTitle" name="componentTitle" required>
-      </div>
-      <div class="form-group">
-        <label for="type">Component Type</label>
-        <select class="form-control" id="type" name="type" th:field="*{type}">
-          <option value="chart">Chart</option>
-          <option value="table">Table</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="data">Data (JSON)</label>
-        <textarea class="form-control" id="data" name="data" th:field="*{data}"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Save Component</button>
-    </form>
-
-    <!-- Form to generate the dashboard -->
-    <form th:action="@{/generate-dashboard}" method="post" class="mt-5">
-      <button type="submit" class="btn btn-secondary">Generate Dashboard</button>
-    </form>
-
-    <!-- Form to preview the dashboard -->
-    <form th:action="@{/preview-dashboard}" method="get" class="mt-5">
-      <button type="submit" class="btn btn-info">Preview Dashboard</button>
-    </form>
-
-    <!-- Form to download the dashboard -->
-    <form th:action="@{/download-dashboard}" method="get" class="mt-5">
-      <button type="submit" class="btn btn-success">Download Dashboard</button>
-    </form>
+  <div class="container-fluid">
+    <h1 class="display-4">Your Dashboard</h1>
+    <p class="lead">Here is your custom dashboard.</p>
+    <div id="line-chart"></div>
+    <div id="pie-chart"></div>
   </div>
 </main>
 
-<footer class="footer mt-auto py-3 bg-dark text-white">
+<footer class="footer mt-auto py-3">
   <div class="container text-center">
     <span class="text-muted">Very dash, much board.</span>
   </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Line chart data
+    const lineChartData = JSON.parse(localStorage.getItem('lineChartData'));
+
+    if (lineChartData) {
+      console.log('Line chart data loaded from localStorage:', lineChartData);
+
+      const lineData = [{
+        x: lineChartData.x || [],
+        y: lineChartData.y || [],
+        type: 'scatter'
+      }];
+
+      const lineLayout = {
+        title: 'Custom Line Chart',
+        xaxis: {
+          title: 'Labels'
+        },
+        yaxis: {
+          title: 'Values'
+        }
+      };
+
+      Plotly.newPlot('line-chart', lineData, lineLayout);
+    } else {
+      console.error('No line chart data found in localStorage for key "lineChartData".');
+    }
+
+    // Pie chart data
+    const pieChartData = JSON.parse(localStorage.getItem('pieChartData'));
+
+    if (pieChartData) {
+      console.log('Pie chart data loaded from localStorage:', pieChartData);
+
+      const pieData = [{
+        values: pieChartData.values || [],
+        labels: pieChartData.labels || [],
+        type: 'pie'
+      }];
+
+      const pieLayout = {
+        title: 'Custom Pie Chart'
+      };
+
+      Plotly.newPlot('pie-chart', pieData, pieLayout);
+    } else {
+      console.error('No pie chart data found in localStorage for key "pieChartData".');
+    }
+  });
+</script>
 </body>
 </html>
-

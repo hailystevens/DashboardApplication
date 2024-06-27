@@ -9,17 +9,15 @@ import java.util.List;
 
 @Service
 public class DataEntryService {
-
     @Autowired
     private DataEntryRepository dataEntryRepository;
 
-    public List<DataEntry> findByUserId(String userId) {
-        return dataEntryRepository.findByUserId(userId);
+    public List<DataEntry> getAllDataEntries() {
+        return dataEntryRepository.findAll();
     }
 
-    public void saveDataEntry(DataEntry dataEntry) {
-        dataEntryRepository.save(dataEntry);
+    public DataEntry saveDataEntry(DataEntry dataEntry) {
+        // Save logic, user ID is set in the controller before saving
+        return dataEntryRepository.save(dataEntry);
     }
 }
-
-

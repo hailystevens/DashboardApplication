@@ -7,12 +7,12 @@ import jakarta.persistence.Id;
 
 @Entity
 public class DataEntry {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userId;
-    private String data;
+    private String label;
+    private Float value;
+    private String userId;  // Add this field
 
     // Getters and Setters
     public Long getId() {
@@ -23,19 +23,27 @@ public class DataEntry {
         this.id = id;
     }
 
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Float getValue() {
+        return value;
+    }
+
+    public void setValue(Float value) {
+        this.value = value;
+    }
+
     public String getUserId() {
         return userId;
     }
 
     public void setUserId(String userId) {
         this.userId = userId;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 }
