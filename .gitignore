@@ -31,3 +31,27 @@ build/
 
 ### VS Code ###
 .vscode/
+
+HTML Requirements:
+Have at least 3 pages: The examples provided (e.g., index.html, about.html, contact.html, sign_in.html, registration.html) indicate that there are multiple pages.
+Use at least 10 different HTML tags: Various tags are used (e.g., html, head, title, meta, link, style, body, nav, a, main, h1, p, form, input, button, footer, script).
+Use HTML tables: A table is used in the "About Us" page within a modal.
+Implement at least two uses for forms: Forms are used in the "Registration" and "Contact" pages.
+Drop-down menu: The create dashboard html includes dropdowns
+Use web fonts: The 'Karla' font is used via Google Fonts.
+Use different types of content: Text, images, and videos (e.g., <img>, <iframe> for YouTube videos) are present.
+Use regex validation: Regex is used in the "Contact" page's JavaScript for validating inputs.
+CSS Requirements:
+Inline, internal, and external styling: Inline (e.g., style="..."), internal (e.g., <style>...</style>), and external stylesheets are used.
+Use five different CSS selectors: Various selectors are used (e.g., class selectors .navbar, element selectors body, ID selectors #graph, pseudo-classes :hover, attribute selectors input[type="text"]).
+Don’t use too many fonts: The examples use a couple of fonts.
+Use colors that complement each other: Consistent color scheme is applied.
+Use Flexbox (Optional): Flexbox is used for layout.
+Use SASS/SCSS (Optional): SASS in
+Use animations (Optional): Button hover animations are present.
+JavaScript Requirements:
+External scripts: External JS files are linked.
+Use variables, if statements, loops, collections, functions/callbacks, and events: Covered in scripts.js.
+Use AJAX (Optional): Example of AJAX request provided.
+Use JSON or XML (Optional): AJAX request handles JSON data.
+Use JQuery (Optional): JQuery is used for AJAX and document ready.

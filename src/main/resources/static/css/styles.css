@@ -1,7 +1,7 @@
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #1b1b1b;
-    color: #e0e0e0;
+    font-family: 'Arial', sans-serif; /* Use web fonts */
+    background-color: #1b1b1b; /* Use colors that complement each other */
+    color: #e0e0e0; /* Use colors that complement each other */
     margin: 0;
     padding: 0;
 }
@@ -14,7 +14,7 @@ a {
 .navbar {
     position: sticky;
     z-index: 1;
-    background-color: #1f1f1f;
+    background-color: #1f1f1f; /* Use colors that complement each other */
     top: 0;
     left: 0;
     margin: 0;
@@ -26,11 +26,11 @@ a {
 }
 
 .nav-link, .btn-outline-light, .text-white {
-    color: #e0e0e0 !important;
+    color: #e0e0e0 !important; /* Use colors that complement each other */
 }
 
 .navbar-brand {
-    font-family: 'Karla', sans-serif;
+    font-family: 'Karla', sans-serif; /* Use web fonts */
     font-weight: 600;
 }
 
@@ -60,36 +60,36 @@ form h1 {
 }
 
 form input, form select, form textarea {
-    background-color: #333;
-    border: 1px solid #555;
+    background-color: #333; /* Use colors that complement each other */
+    border: 1px solid #555; /* Use colors that complement each other */
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
-    color: #e0e0e0;
+    color: #e0e0e0; /* Use colors that complement each other */
     border-radius: 4px;
 }
 
 .form-group label {
     margin-top: 15px;
     font-weight: bold;
-    color: #00acc1;
+    color: #00acc1; /* Use colors that complement each other */
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background: linear-gradient(to right, #00bfa5, #7364d2);
+    background: linear-gradient(to right, #00bfa5, #7364d2); /* Use colors that complement each other */
     border: none;
     color: #ffffff;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background: linear-gradient(to right, #009e8a, #6042b1);
+    background: linear-gradient(to right, #009e8a, #6042b1); /* Use colors that complement each other */
 }
 
 .button {
     border: none;
     padding: 12px 45px;
     margin-top: 20px;
-    background: linear-gradient(to right, #00bfa5, #7364d2);
+    background: linear-gradient(to right, #00bfa5, #7364d2); /* Use colors that complement each other */
     color: #ffffff;
     font-size: 14px;
     cursor: pointer;
@@ -98,7 +98,7 @@ form input, form select, form textarea {
 }
 
 .button:hover, .button:focus, .button:active {
-    background: linear-gradient(to right, #009e8a, #6042b1);
+    background: linear-gradient(to right, #009e8a, #6042b1); /* Use colors that complement each other */
 }
 
 .button:active {
@@ -114,7 +114,7 @@ form input, form select, form textarea {
 }
 
 footer a {
-    color: #00acc1 !important;
+    color: #00acc1 !important; /* Use colors that complement each other */
 }
 
 main {
@@ -123,7 +123,7 @@ main {
 }
 
 .form-container {
-    background-color: #1f1f1f;
+    background-color: #1f1f1f; /* Use colors that complement each other */
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

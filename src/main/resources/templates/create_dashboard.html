@@ -4,17 +4,20 @@
     <title>Create and Configure Your Dashboard</title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Use web fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <!-- Use web fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- External CSS -->
     <style>
         /* General Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #1b1b1b;
-            color: #e0e0e0;
+            background-color: #1b1b1b; /* Use colors that complement each other */
+            color: #e0e0e0; /* Use colors that complement each other */
             margin: 0;
             padding: 0;
         }
@@ -43,7 +46,7 @@
         }
 
         .navbar-brand {
-            font-family: 'Karla', sans-serif;
+            font-family: 'Karla', sans-serif; /* Use web fonts */
             font-weight: 600;
         }
 
@@ -151,20 +154,22 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">dash.io</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">dash.io</a> <!-- Link to another page -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about.html">About Us</a> <!-- Link to another page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a> <!-- Link to another page -->
                     </li>
                 </ul>
                 <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+                <!-- Link to another page -->
             </div>
         </div>
     </nav>
@@ -176,38 +181,45 @@
         <p class="lead">Follow the steps to create your custom dashboard.</p>
         <div class="form-container">
             <form id="dashboardForm" enctype="multipart/form-data" method="post" action="/dashboard/process">
+                <!-- Form -->
                 <div class="form-group">
                     <label for="dashboardTitle">Dashboard Title</label>
-                    <input type="text" class="form-control" id="dashboardTitle" name="dashboardTitle" placeholder="Enter dashboard title" required>
+                    <input type="text" class="form-control" id="dashboardTitle" name="dashboardTitle"
+                           placeholder="Enter dashboard title" required> <!-- Form field -->
                 </div>
                 <div class="form-group">
                     <label for="dataSource">Primary Data Source</label>
-                    <select class="form-control" id="dataSource" name="dataSource" required>
+                    <select class="form-control" id="dataSource" name="dataSource" required> <!-- Form field -->
                         <option value="" disabled selected>Select your data source</option>
                         <option value="csv">CSV File Upload</option>
                         <option value="database">Database Connection</option>
                         <option value="manual">Manual Data Entry</option>
                     </select>
-                    <small class="form-text text-muted">Choose the source of your data. CSV is recommended for beginners.</small>
+                    <small class="form-text text-muted">Choose the source of your data. CSV is recommended for
+                        beginners.</small>
                 </div>
                 <div class="form-group" id="csvUploadSection" style="display: none;">
                     <label for="file">Upload CSV File</label>
                     <input type="file" class="form-control" id="file" name="file">
-                    <small class="form-text text-muted">Upload a CSV file with your data. Make sure the format is correct.</small>
+                    <small class="form-text text-muted">Upload a CSV file with your data. Make sure the format is
+                        correct.</small>
                 </div>
                 <div class="form-group" id="databaseSection" style="display: none;">
                     <label for="dbConnection">Database Connection String</label>
-                    <input type="text" class="form-control" id="dbConnection" name="dbConnection" placeholder="Enter database connection string">
+                    <input type="text" class="form-control" id="dbConnection" name="dbConnection"
+                           placeholder="Enter database connection string">
                     <small class="form-text text-muted">Provide the connection string to your database.</small>
                 </div>
                 <div class="form-group" id="manualDataSection" style="display: none;">
                     <label for="manualData">Enter Data Manually</label>
-                    <textarea class="form-control" id="manualData" name="manualData" rows="5" placeholder="Enter your data here, one entry per line."></textarea>
-                    <small class="form-text text-muted">Provide your data manually. Each line will be treated as a separate entry.</small>
+                    <textarea class="form-control" id="manualData" name="manualData" rows="5"
+                              placeholder="Enter your data here, one entry per line."></textarea> <!-- Form field -->
+                    <small class="form-text text-muted">Provide your data manually. Each line will be treated as a
+                        separate entry.</small>
                 </div>
                 <div class="form-group">
                     <label for="theme">Theme</label>
-                    <select class="form-control" id="theme" name="theme" required>
+                    <select class="form-control" id="theme" name="theme" required> <!-- Form field -->
                         <option value="dark">Dark</option>
                         <option value="light">Light</option>
                     </select>
@@ -225,35 +237,35 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- External JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> <!-- External JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- External JS -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- External JS -->
 <script>
-    $(document).ready(function() {
-        $('#dataSource').on('change', function() {
-            if (this.value === 'csv') {
+    $(document).ready(function () {
+        $('#dataSource').on('change', function () { <!-- Use variables, events -->
+            if (this.value === 'csv') { <!-- Use if statements -->
                 $('#csvUploadSection').show();
                 $('#databaseSection').hide();
                 $('#manualDataSection').hide();
                 $('#file').prop('required', true);
                 $('#dbConnection').prop('required', false);
                 $('#manualData').prop('required', false);
-            } else if (this.value === 'database') {
+            } else if (this.value === 'database') { <!-- Use if statements -->
                 $('#csvUploadSection').hide();
                 $('#databaseSection').show();
                 $('#manualDataSection').hide();
                 $('#file').prop('required', false);
                 $('#dbConnection').prop('required', true);
                 $('#manualData').prop('required', false);
-            } else if (this.value === 'manual') {
+            } else if (this.value === 'manual') { <!-- Use if statements -->
                 $('#csvUploadSection').hide();
                 $('#databaseSection').hide();
                 $('#manualDataSection').show();
                 $('#file').prop('required', false);
                 $('#dbConnection').prop('required', false);
                 $('#manualData').prop('required', true);
-            } else {
+            } else { <!-- Use if statements -->
                 $('#csvUploadSection').hide();
                 $('#databaseSection').hide();
                 $('#manualDataSection').hide();
@@ -263,10 +275,10 @@
             }
         });
 
-        $('#dashboardForm').on('submit', function(event) {
+        $('#dashboardForm').on('submit', function (event) { <!-- Use events -->
             event.preventDefault();
 
-            var formData = new FormData(this);
+            var formData = new FormData(this); <!-- Use variables -->
 
             $.ajax({
                 url: '/dashboard/process',
@@ -274,10 +286,10 @@
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function(response) {
+                success: function (response) {
                     window.location.href = '/dashboard/view?id=' + response.dashboardId;
                 },
-                error: function(error) {
+                error: function (error) {
                     alert('An error occurred while creating the dashboard.');
                 }
             });

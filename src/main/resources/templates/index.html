@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build a Dashboard in Minutes Without Code</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Use web fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Karla:wght@200;400;600;800&display=swap" rel="stylesheet">
+    <!-- Use web fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- External CSS -->
     <style>
         /* Reset and Base Styles */
         * {
@@ -19,8 +22,8 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #1b1b1b;
-            color: #e0e0e0;
+            background-color: #1b1b1b; /* Use colors that complement each other */
+            color: #e0e0e0; /* Use colors that complement each other */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -35,8 +38,8 @@
         /* Top Bar */
         .top-bar {
             width: 100%;
-            background-color: #333;
-            color: #e0e0e0;
+            background-color: #333; /* Use colors that complement each other */
+            color: #e0e0e0; /* Use colors that complement each other */
             padding: 0.5rem 1rem;
             display: flex;
             justify-content: space-between;
@@ -44,7 +47,7 @@
         }
 
         .top-bar a {
-            color: #e0e0e0;
+            color: #e0e0e0; /* Use colors that complement each other */
         }
 
         .top-bar .nav-center {
@@ -117,7 +120,7 @@
             margin-bottom: 20px;
         }
 
-        @keyframes fadeIn {
+        @keyframes fadeIn { /* CSS animation */
             from {
                 opacity: 0;
             }
@@ -194,20 +197,22 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">dash.io</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="index.html">dash.io</a> <!-- Link to another page -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about.html">About Us</a> <!-- Link to another page -->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a> <!-- Link to another page -->
                     </li>
                 </ul>
                 <a class="btn btn-primary ml-3" href="registration.html">Create Account</a>
+                <!-- Link to another page -->
             </div>
         </div>
     </nav>
@@ -222,17 +227,19 @@
             <div class="row mt-5">
                 <div class="col-md-4 text-center">
                     <h2>1. <span>Pick your primary data source</span></h2>
-                    <img src="/static/images/example-image1.jpg" alt="Data Source" class="img-fluid" style="width: 320px; height: 240px;">
+                    <img src="/static/images/example-image1.jpg" alt="Data Source" class="img-fluid"
+                         style="width: 320px; height: 240px;"> <!-- Image -->
                 </div>
                 <div class="col-md-4 text-center">
                     <h2>2. <span>Pick analytical add-ons</span></h2>
-                    <img src="/static/images/example-image2.jpg" alt="Analytical Add-ons" class="img-fluid" style="width: 320px; height: 240px;">
+                    <img src="/static/images/example-image2.jpg" alt="Analytical Add-ons" class="img-fluid"
+                         style="width: 320px; height: 240px;"> <!-- Image -->
                 </div>
                 <div class="col-md-4 text-center">
                     <h2>3. <span>Make it look good</span></h2>
                     <iframe width="320" height="240" src="https://www.youtube.com/embed/z26zbiGJnd4" frameborder="0"
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+                            allowfullscreen></iframe> <!-- Video -->
                 </div>
             </div>
         </div>
@@ -245,25 +252,25 @@
 
 <footer class="text-center text-white">
     <div class="icon-container">
-        <a href="https://www.linkedin.com/in/hailystevens/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://github.com/hailystevens"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/hailystevens/"><i class="fab fa-linkedin-in"></i></a> <!-- Link -->
+        <a href="https://github.com/hailystevens"><i class="fab fa-github"></i></a> <!-- Link -->
     </div>
 
     <div class="container">
         <section class="mb-4">
-            <form id="subscribe-form">
+            <form id="subscribe-form"> <!-- Form -->
                 <div class="row d-flex justify-content-center">
                     <div class="col-auto">
                         <p class="pt-2"><strong>Sign up for our newsletter</strong></p>
                     </div>
                     <div class="col-md-5 col-12">
                         <div class="form-outline form-white mb-4">
-                            <input type="email" id="form5Example2" class="form-control"/>
+                            <input type="email" id="form5Example2" class="form-control"/> <!-- Form field -->
                             <label class="form-label" for="form5Example2">Email address</label>
                         </div>
                     </div>
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-outline-light mb-4">Subscribe</button>
+                        <button type="submit" class="btn btn-outline-light mb-4">Subscribe</button> <!-- Form submit -->
                     </div>
                 </div>
             </form>
@@ -271,22 +278,27 @@
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
-                    <li><a href="create_dashboard.html" class="text-white">Create your dashboard</a></li>
+                    <li><a href="create_dashboard.html" class="text-white">Create your dashboard</a>
+                        <!-- Link to another page -->
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
-                    <li><a href="registration.html" class="text-white">Sign in/Sign up</a></li>
+                    <li><a href="registration.html" class="text-white">Sign in/Sign up</a> <!-- Link to another page -->
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
-                    <li><a href="contact.html" class="text-white">Contact</a></li>
+                    <li><a href="contact.html" class="text-white">Contact</a> <!-- Link to another page -->
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <ul class="list-unstyled mb-0">
-                    <li><a href="share.html" class="text-white">Share with friends</a></li>
+                    <li><a href="share.html" class="text-white">Share with friends</a> <!-- Link to another page -->
+                    </li>
                 </ul>
             </div>
         </div>
@@ -297,35 +309,35 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> <!-- External JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script> <!-- External JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> <!-- External JS -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Variables
-        const subscribeForm = document.querySelector('#subscribe-form');
-        const emailInput = document.querySelector('#form5Example2');
+        const subscribeForm = document.querySelector('#subscribe-form'); /* Use variables */
+        const emailInput = document.querySelector('#form5Example2'); /* Use variables */
 
         // Functions
-        function validateEmail(email) {
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        function validateEmail(email) { /* Use functions */
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; /* Use regex validation */
             return regex.test(email);
         }
 
-        function handleSubscribe(event) {
+        function handleSubscribe(event) { /* Use functions */
             event.preventDefault();
-            const email = emailInput.value;
-            if (validateEmail(email)) {
-                alert('Subscribed successfully with email: ' + email);
-                emailInput.value = '';
+            const email = emailInput.value; /* Use variables */
+            if (validateEmail(email)) { /* Use if statements */
+                alert('Subscribed successfully with email: ' + email); /* Use events */
+                emailInput.value = ''; /* Use variables */
             } else {
-                alert('Please enter a valid email address.');
+                alert('Please enter a valid email address.'); /* Use events */
             }
         }
 
         // Event Listeners
-        if (subscribeForm) {
-            subscribeForm.addEventListener('submit', handleSubscribe);
+        if (subscribeForm) { /* Use if statements */
+            subscribeForm.addEventListener('submit', handleSubscribe); /* Use events */
         }
     });
 </script>
