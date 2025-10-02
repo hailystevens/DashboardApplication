@@ -28,7 +28,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/auth/**", "/").permitAll()
+                                .requestMatchers("/auth/**", "/", "/create_dashboard", "/dashboard/**", "/h2-console/**", "/about.html", "/contact.html", "/index.html").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .formLogin(formLogin ->
@@ -39,7 +39,8 @@ public class SecurityConfig {
                 )
                 .logout(logout ->
                         logout.permitAll()
-                );
+                )
+                .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable())); // Allow H2 console frames
         return http.build();
     }
 
